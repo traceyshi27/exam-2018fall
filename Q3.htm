@@ -15,13 +15,11 @@
             margin-left: auto;
             background-color: Silver;
         }
-
         h1 {
             font-family: Arial;
             font-weight: bold;
             text-align: center;
         }
-
         p#instruction {
             font-family: arial;
             font-size: 16pt;
@@ -30,6 +28,26 @@
             text-align: left;
         }
     </style>
+    <script type="text/javascript">
+        function calculate(){
+            let form = document.getElementById("form");
+            let result = form.from.value;
+            let start = parseFloat(form.from.value) + 1;
+            if (isNaN(form.from.value) || isNaN(form.to.value)){
+                alert("Please only enter numbers.");
+            }
+            if (form.from.value == "" || form.to.value == ""){
+                alert("Please enter both values.");
+            }
+            if (form.from.value != "" && form.to.value != ""){
+                for (let i=start; i<=parseFloat(form.to.value); i++){
+                    result = result * i;
+                }
+                alert(result);
+            }
+            return false;
+        }
+    </script>
 </head>
 
 <body>
@@ -39,19 +57,17 @@
         two text inputs. When Calculate button is clicked, the <b style="color:red;">product</b> of <b>all</b> the
         integers between these two numbers (inclusive) will be calculated and displayed. (10 points)
         For full points, you need to validate the inputs properly. (5 points)
-
     </p>
-    <form>
+    <form id="form">
         <p>
             From: <input type="text" name="from" size="10"/> To: <input type="text" name="to" size="10">
         </p>
         <p>
-            <input type="submit" name="calc" value="Calculate">
+            <input onclick="return calculate()" type="submit" name="calc" value="Calculate">
             <input type="reset" name="reset" value="CLEAR">
         </p>
         <p>The product is .</p>
     </form>
-
 </body>
 
 </html>

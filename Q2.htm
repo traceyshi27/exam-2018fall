@@ -1,7 +1,8 @@
 ﻿<!DOCTYPE html>
-<html>
-<head>
 
+<html>
+
+<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Q2 - Web Tech - Fall 2018</title>
     <style type="text/css">
@@ -9,17 +10,14 @@
             margin-right: auto;
             margin-left: auto;
         }
-
         img {
             width: 70%;
         }
-
         h1 {
             font-family: Arial;
             font-weight: bold;
             text-align: center;
         }
-
         p {
             font-family: arial;
             font-size: 16pt;
@@ -27,17 +25,40 @@
             padding: 10px 100px 10px 100px;
             text-align: left;
         }
-
     </style>
-
     <script type="text/javascript">
-
+        function display(id){
+            let rocks = document.getElementById("rocks");
+            let sucks = document.getElementById("sucks");
+            if (id == "smiley"){
+                rocks.style.color = "red";
+                rocks.style.fontSize = "2em";
+                rocks.style.fontFamily = "Lucida Handwriting";
+                rocks.style.backgroundColor = "yellow";
+                sucks.style.color = "black";
+                sucks.style.fontWeight = "normal";
+                sucks.style.fontSize = "16px";
+                sucks.style.backgroundColor = "transparent";
+                sucks.style.fontFamily = "Times New Roman";
+            }
+            if (id == "frown"){
+                sucks.style.color = "green";
+                sucks.style.fontWeight = "bold";
+                sucks.style.fontSize = "2em";
+                sucks.style.backgroundColor = "blue";
+                sucks.style.fontFamily = "Arial";
+                rocks.style.color = "black";
+                rocks.style.fontWeight = "normal";
+                rocks.style.fontSize = "16px";
+                rocks.style.backgroundColor = "transparent";
+                rocks.style.fontFamily = "Times New Roman";
+            }
+        }
     </script>
 </head>
 
 <body>
     <h1>Web Tech Exam - Q2 (20 points)</h1>
-
     <p>
         There are two images shown below along with two text strings. Create the functionality whereby if you click on
         the Smiley.jpg image, the text string "Web Tech Rocks" is shown in red font, size 2em, using Lucida Handwriting
@@ -46,17 +67,16 @@
         be displayed. For full credit, write this as a single function. For 15 points, write it using as many functions
         as necessary.
     </p>
-
     <table>
         <tr>
-            <td><img src="smiley.jpg" alt="Smiling Face" title="Smile"></td>
-            <td>Web Tech Rocks!</td>
+            <td><img onclick="display(this.id)" id="smiley" src="smiley.jpg" alt="Smiling Face" title="Smile"></td>
+            <td id="rocks">Web Tech Rocks!</td>
         </tr>
         <tr>
-            <td><img src="frown.jpg" alt="Frown Face" title="Sad"></td>
-            <td>Web Tech Sucks!</td>
+            <td><img onclick="display(this.id)" id="frown" src="frown.jpg" alt="Frown Face" title="Sad"></td>
+            <td id="sucks">Web Tech Sucks!</td>
         </tr>
-
     </table>
 </body>
+
 </html>
