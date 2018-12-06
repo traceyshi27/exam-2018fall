@@ -43,7 +43,7 @@
                 for (let i=start; i<=parseFloat(form.to.value); i++){
                     result = result * i;
                 }
-                alert(result);
+                document.getElementById("product").innerHMTL = result;
             }
             return false;
         }
@@ -66,7 +66,7 @@
             <input onclick="return calculate()" type="submit" name="calc" value="Calculate">
             <input type="reset" name="reset" value="CLEAR">
         </p>
-        <p>The product is .</p>
+        <p id="product">The product is .</p>
     </form>
 </body>
 
